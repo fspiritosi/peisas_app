@@ -1,0 +1,15 @@
+
+{
+  "development": {
+    "username": "postgres",
+    "password": "Masha0911",
+    "database": "peisas_app",
+    "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres"
+  }
+}
