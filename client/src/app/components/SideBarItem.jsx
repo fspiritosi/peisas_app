@@ -1,14 +1,18 @@
+'use client'
 import { useContext } from "react"
 import { SidebarContext } from "./SideBar"
+import { usePathname } from "next/navigation";
 
 
-
-function SideBarItem({icon, text, active, alert}) {
+function SideBarItem({icon, text, alert, link}) {
   const { expanded } = useContext(SidebarContext);
+  const path = usePathname()
+
+
   return (
     <li
       className={`relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group ${
-        active
+        path === link
           ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
           : "hover:bg-indigo-50 text-gray-600"
       }`}

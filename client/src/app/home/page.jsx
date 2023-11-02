@@ -4,7 +4,9 @@ import { useRouter } from "next/navigation"
 import { middlewere } from "../middleware/middleware"
 import HomeComponent from "./HomeComponent"
 
-function HomePage() {
+
+
+function HomePage({children}) {
   const router = useRouter()
 const [user, setUser] = useState({
   id: "",
@@ -37,7 +39,9 @@ const [user, setUser] = useState({
         {!user.id ? (
           <p>Ingreso No Autorizado</p>
         ) : (
-          <HomeComponent user={user}/>
+          <div className="flex w-full">
+            <div>{children}</div>
+          </div>
         )}
         {/* <p>Bienvenido nuevamente {user.userData.userName}!</p> */}
       </div>
