@@ -20,7 +20,7 @@ export default function HomeLayout({ children }) {
             </Link>
           ))}
         </SideBar>
-        <main className="w-full p-4">{children}</main>
+        <main className="w-full p-4 bg-white text-black">{children}</main>
       </div>
     );
 }
