@@ -1,5 +1,6 @@
 import axios from "axios"
 import Link from "next/link"
+import image from "@/app/assets/homeImg.jpg"
 export default async function Home() {
   return (
     <>

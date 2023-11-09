@@ -1,49 +1,21 @@
-'use client'
-import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { middlewere } from "../middleware/middleware"
-import HomeComponent from "./HomeComponent"
 
+import CardData from "../components/CardData";
+import TaskTable from "../components/TaskTable";
+import { Icons } from "../utils/Logos";
 
-
-function HomePage({children}) {
-  const router = useRouter()
-const [user, setUser] = useState({
-  id: "",
-  userData: {
-    userName:"",
-    userLastname:"",
-    userEmail: "",
-    userToken:""
-  }
-})
-
-    useEffect(() => {
-       const user = window.sessionStorage.getItem("userData")
-       const userId = window.sessionStorage.getItem("user");
-       
-       if(!userId){
-        router.push("/")
-       }else{
-         middlewere(user.userToken)
-       }
-       
-       setUser({
-        id: userId,
-        userData: JSON.parse(user)
-       })
-    }, [])
+function HomePage() {
     
     return (
-      <div>
-        {!user.id ? (
-          <p>Ingreso No Autorizado</p>
-        ) : (
-          <div className="flex w-full">
-            <div>{children}</div>
-          </div>
-        )}
-        {/* <p>Bienvenido nuevamente {user.userData.userName}!</p> */}
+      <div className="flex w-full flex-col gap-4">
+        <div className="flex w-full justify-between px-16">
+          <CardData data={Icons[0]} />
+          <CardData data={Icons[1]} />
+          <CardData data={Icons[2]} />
+          <CardData data={Icons[3]} />
+        </div>
+        <div className="px-16">
+          <TaskTable/>
+        </div>
       </div>
     );
 }

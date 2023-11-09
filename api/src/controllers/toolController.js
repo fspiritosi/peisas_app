@@ -1,17 +1,17 @@
-const  Tool  = require("../models/Tool");
+const Equipment = require("../models/Equipment");
 const User = require("../models/User");
 
-const getAllTools = async (req, res) => {
+const getAllEquipment = async (req, res) => {
   try {
-    const tools = await Tool.findAll();
-    res.json(tools);
+    const equipment = await Tool.findAll();
+    res.json(equipment);
   } catch (error) {
     console.error("Error al obtener herramientas:", error);
     res.status(500).json({ error: "Error al obtener herramientas" });
   }
 };
 
-const createTool = async (req, res) => {
+const createEquipment = async (req, res) => {
   const { name, UserId } = req.body;
 
   try {
@@ -22,13 +22,13 @@ const createTool = async (req, res) => {
     }
 
     // Crear la herramienta y asociarla al usuario
-    const tool = await Tool.create({ name, UserId });
+    const equipment = await Equipment.create({ name, UserId });
 
-    res.status(201).json(tool);
+    res.status(201).json(equipment);
   } catch (error) {
     console.error("Error al crear herramienta:", error);
     res.status(500).json({ error: "Error al crear herramienta" });
   }
 };
 
-module.exports = { getAllTools, createTool };
+module.exports = { getAllEquipment, createEquipment };

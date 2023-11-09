@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { getAllTools, createTool } = require("../controllers/toolController");
+const { getAllEquipment, createEquipment } = require("../controllers/toolController");
 
-router.get("/", getAllTools);
-router.post("/", createTool);
+router.get("/", getAllEquipment);
+router.post("/", createEquipment);
 
 module.exports = router;

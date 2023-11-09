@@ -11,16 +11,12 @@ export default function HomeLayout({ children }) {
       <div className="flex">
         <SideBar>
           {MenuItems.map((item) => (
-            <Link href={item.link}>
-              <SideBarItem
-                icon={item.icon}
-                text={item.name}
-                link={item.link}
-              />
+            <Link href={item.link} key={item.name}>
+              <SideBarItem icon={item.icon} text={item.name} link={item.link} />
             </Link>
           ))}
         </SideBar>
-        <main className="w-full p-4 bg-white text-black">{children}</main>
+        <main className="w-full p-4 text-black">{children}</main>
       </div>
     );
 }

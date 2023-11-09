@@ -1,6 +1,7 @@
 const { DataTypes, UUIDV4 } = require("sequelize");
 const db = require("../db");
 
+
 const User = db.sequelize.define("User", {
   id: {
     type: DataTypes.UUID,
@@ -24,6 +25,10 @@ const User = db.sequelize.define("User", {
       isEmail: true,
     },
   },
+  userRole: {
+    type: DataTypes.ENUM("admin", "user"),
+    allowNull: false,
+  },
   password: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -32,7 +37,10 @@ const User = db.sequelize.define("User", {
 
 module.exports = User;
 
-const Tool = require('./Tool'); // Importa el modelo de Tool después de definir User
+const Equipment = require("./Equipment"); // Importa el modelo de Tool después de definir User
+const Task = require("./Task");
 
-User.hasMany(Tool, { foreignKey: "UserId", sourceKey: "id" }); // Un usuario puede tener muchas herramientas
-Tool.belongsTo(User, { foreignKey: "UserId", sourceKey: "id" }); // Una herramienta pertenece a un usuario
+User.hasMany(Equipment, { foreignKey: "UserId", sourceKey: "id" }); // Un usuario puede tener muchas herramientas
+Equipment.belongsTo(User, { foreignKey: "UserId", sourceKey: "id" }); // Una herramienta pertenece a un usuario
+
+

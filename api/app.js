@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 const PORT = process.env.PORT || 3001;
 
 db.sequelize
-  .sync({alter: true})
+  .sync({force: true})
   .then(() => {
     console.log("Base de datos sincronizada. Iniciando el servidor...");
     app.listen(PORT, () => {

@@ -11,42 +11,42 @@ import {
 
 export const MenuItems = [
   {
-    name: "Dashboard",
+    name: "Inicio",
     icon: <LayoutDashboard size={20} />,
-    link: "/home/dashboard",
+    link: "/home",
   },
   {
-    name: "Orders",
+    name: "Tareas",
     icon: <Package size={20} />,
     link: "/home/orders",
   },
   {
-    name: "Inventory",
+    name: "Equipos",
     icon: <Boxes size={20} />,
     link: "/home/inventory",
   },
   {
-    name: "Users",
+    name: "Usuarios",
     icon: <UserCircle size={20} />,
     link: "/home/users",
   },
   {
-    name: "Statistics",
+    name: "Reportes",
     icon: <BarChart3 size={20} />,
     link: "/home/statistics",
   },
   {
-    name: "Billings",
+    name: "Cotizaciones",
     icon: <Receipt size={20} />,
     link: "/home/billings"
   },
   {
-    name:"Settings",
+    name:"Configuración",
     icon: <Settings size={20} />,
     link: "/home/settings"
   },
   {
-    name: "Help",
+    name: "Ayuda  ",
     icon: <LifeBuoy size={20} />,
     link: "/home/help"
   }
